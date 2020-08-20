@@ -1,0 +1,20 @@
+packetbeat.interfaces.device: any
+
+packetbeat.protocols:
+  - type: dns
+    ports: [53]
+    include_authorities: true
+    include_additionals: true
+
+  - type: http
+    ports: [80, 8000, 8080, 9200]
+
+  - type: mysql
+    ports: [3306]
+
+  - type: redis
+    ports: [6379]
+
+packetbeat.flows:
+  timeout: 30s
+  period: 10s

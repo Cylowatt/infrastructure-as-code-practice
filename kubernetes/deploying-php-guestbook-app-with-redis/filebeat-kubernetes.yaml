@@ -1,0 +1,12 @@
+- condition.contains:
+    kubernetes.labels.app: redis
+  config:
+    - module: redis
+      log:
+        input:
+          type: docker
+          containers.ids:
+            - ${data.kubernetes.container.id}
+      slowlog:
+        enabled: true
+        var.hosts: ["${data.host}:${data.port}"]

@@ -1,0 +1,9 @@
+- condition.equals:
+    kubernetes.labels.tier: backend
+  config:
+    - module: redis
+      metricsets: ["info", "keyspace"]
+      period: 10s
+
+      # Redis hosts
+      hosts: ["${data.host}:${data.port}"]
